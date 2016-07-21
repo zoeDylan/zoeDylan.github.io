@@ -34,6 +34,37 @@ gulp.task('min', function () {
             }
         }))
         .pipe(gulp.dest('statics/js'));
+
+    gulp.src('source/html/*.html')
+        .pipe(minify({
+            minify: true,
+            collapseWhitespace: true,
+            conservativeCollapse: true,
+            minifyJS: true,
+            minifyCSS: true,
+            getKeptComment: function (content, filePath) {
+                console.log(content)
+                var m = content.match(/\/\*![\s\S]*?\*\//img);
+                return m && m.join('\n') + '\n' || '';
+            }
+        }))
+        .pipe(gulp.dest('./statics/html'));
+    
+    gulp.src('source/index.html')
+        .pipe(minify({
+            minify: true,
+            collapseWhitespace: true,
+            conservativeCollapse: true,
+            minifyJS: true,
+            minifyCSS: true,
+            getKeptComment: function (content, filePath) {
+                console.log(content)
+                var m = content.match(/\/\*![\s\S]*?\*\//img);
+                return m && m.join('\n') + '\n' || '';
+            }
+        }))
+        .pipe(gulp.dest('./'));
+
 })
 
 
