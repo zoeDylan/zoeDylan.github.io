@@ -4,8 +4,8 @@ var gulp = require('gulp'),
     path = require('path');
 
 
-gulp.task('default', function () {
-    // 将你的默认的任务代码放在这
+
+gulp.task('min', function () {
     gulp.src('source/less/*.less')
         .pipe(less())
         .pipe(minify({
@@ -34,4 +34,9 @@ gulp.task('default', function () {
             }
         }))
         .pipe(gulp.dest('statics/js'));
+})
+
+
+gulp.task('default', function () {
+    gulp.watch('source/*/*.*', ['min']);
 });
