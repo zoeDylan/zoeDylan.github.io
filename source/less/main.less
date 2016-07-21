@@ -2,12 +2,155 @@
 @import "false/animation.less";
 //css reset
 @import "false/zoeDylan.reset.less";
+//iconfont
+@import "false/iconfont.less";
 
-h1{
-    text-align: center;
-    font-size: 24px;
+body {
+    background: #C7EDCC;
+    color: #333;
 }
-h2{
-    text-align: center;
-    font-size: 16px;
+
+header {
+    height: 80px;
+    padding: 0 20px;
+    padding-left: 140px;
+    background: #f9cc9d;
+    box-shadow: 0 1px 5px #666;
+    -moz-transition: all .3s;
+    -o-transition: all .3s;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    position: relative;
+
+    .logo {
+        width: 60px;
+        height: 100%;
+        text-align: center;
+        overflow: hidden;
+        position: absolute;
+        left: 20px;
+        top: 0;
+        line-height: 80px;
+
+        .iconfont {
+            font-size: 60px;
+        }
+    }
+
+    ul {
+        height: 80px;
+        line-height: 80px;
+        float: right;
+        font-size: 20px;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            *display: inline;
+            *zoom: 1;
+            height: 70px;
+            width: 100px;
+            position: relative;
+            background: #fddd9b;
+            -moz-transition: all .3s;
+            -o-transition: all .3s;
+            -webkit-transition: all .3s;
+            transition: all .3s;
+
+            a {
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100%;
+                width: 100%;
+            }
+
+            &.active, &:hover {
+                box-shadow: 0 5px 10px #666;
+            }
+        }
+    }
+
+    .showNav {
+        @width: 25px;
+        @heigth: 5px;
+        position: absolute;
+        display: block;
+        height: @heigth;
+        background: #fff;
+        right: 10px;
+        top: 17.5px;
+        width: @width;
+        transition: all .3s;
+        display:none;
+
+        &:before {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: -7px;
+            background: #fff;
+            height: @heigth;
+            width: @width;
+            content: ' ';
+            transition: all .3s;
+        }
+
+        &:after {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 7px;
+            background: #fff;
+            height: @heigth;
+            width: @width;
+            content: ' ';
+            transition: all .3s;
+        }
+
+        &.active, &:hover {
+            background: rgba(0,0,0,.0);
+
+            &:before {
+                transform: rotate(-45deg);
+                top: 0;
+            }
+
+            &:after {
+                transform: rotate(45deg);
+                top: 0;
+            }
+        }
+    }
+
+    &:hover {
+        box-shadow: 0 5px 10px #666;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    header {
+        height: 40px;
+        padding: 0 10px;
+        padding-left: 70px;
+
+        .logo {
+            left: 10px;
+            width: 30px;
+            line-height: 40px;
+
+            .iconfont {
+                font-size: 30px;
+            }
+        }
+
+        ul {
+            background: #f9cc9d;
+            overflow: hidden;
+            height: 0;
+        }
+        .showNav{
+            display:block;
+        }
+    }
 }

@@ -1,2 +1,3 @@
 # zoeDylan.github.io
-自己的免费博客
+
+logo字体：文鼎霹雳体 Regula
