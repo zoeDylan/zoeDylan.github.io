@@ -172,3 +172,15 @@ function _isPhone(val) {
 function _isEmail(val) {
     return /^[0-9a-z][a-z0-9\._-]{1,}@[a-z0-9-]{1,}[a-z0-9]\.[a-z\.]{1,}[a-z]$/.test(val)
 }
+
+
+
+//关闭下拉
+$('header .showNav').click(function () {
+    var fe = $(this);
+    if (fe.hasClass('active')) {
+        fe.removeClass('active');
+    } else {
+        fe.addClass('active');
+    }
+})
