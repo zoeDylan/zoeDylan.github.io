@@ -1,0 +1,51 @@
+
+        .imgSwiper {
+            width: 350px;
+            height: 160px;
+            margin-left: 20px;
+            user-select: none;
+
+            .imgGroup {
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+
+                position: relative;
+
+                .item {
+                    height: 100px;
+                    width: 178px;
+                    position: absolute;
+                    left: 50%;
+                    top: -50%;
+                    margin-left: -120px;
+                    margin-top: -50px;
+                    cursor: pointer;
+                    transition:  all .3s;
+                    opacity: 0;
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    &.prev,&.next,&.active{
+                        top: 50%;
+                        opacity: 1;
+                    }
+                    &.prev {
+                        margin-left: -175px;
+                    }
+
+                    &.next {
+                        margin-left: -3px;
+                    }
+
+                    &.active {
+                        height: 100%;
+                        width: 240px;
+                        margin-top: -80px;
+                        z-index: 2;
+                    }
+                }
+            }
+        }
