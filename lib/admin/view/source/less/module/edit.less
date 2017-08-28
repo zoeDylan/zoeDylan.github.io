@@ -1,0 +1,32 @@
+#__edit {
+    position: relative;
+    height: 100%;
+    .frame {
+        height: 100%;
+        width: 100%;
+    }
+    .editor,
+    .markdown {
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+    .editor {
+        .CodeMirror {
+            height: 100%;
+        }
+    }
+    .markdown {
+        float: right;
+        overflow-y: auto;
+    }
+    .saveBtn {
+        position: absolute;
+        z-index: 1;
+        width: 100px;
+        text-align: center;
+        height: 30px;
+        right: 0;
+        top: 0;
+    }
+}

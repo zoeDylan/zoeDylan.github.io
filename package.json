@@ -1,0 +1,40 @@
+{
+  "name": "zoedylan.github.io",
+  "version": "0.0.1",
+  "description": "my websites",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zoeDylan/zoeDylan.github.io.git"
+  },
+  "keywords": [
+    "zoedyaln"
+  ],
+  "author": "zoedylan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zoeDylan/zoeDylan.github.io/issues"
+  },
+  "homepage": "https://github.com/zoeDylan/zoeDylan.github.io#readme",
+  "dependencies": {
+    "glob": "^7.1.2",
+    "koa": "^2.3.0",
+    "koa-body": "^2.3.0",
+    "koa-router": "^7.2.1",
+    "koa-send": "^4.1.0",
+    "koa-sendfile": "^2.0.0",
+    "koa-static": "^4.0.1",
+    "open": "^0.0.5",
+    "react-markdown": "^2.5.0"
+  },
+  "devDependencies": {
+    "@types/node": "^8.0.20"
+  }
+}

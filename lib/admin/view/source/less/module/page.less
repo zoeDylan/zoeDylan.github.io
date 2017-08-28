@@ -1,0 +1,16 @@
+#__page {
+    position: relative;
+    >div {
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        transition: all .3s;
+        position: absolute;
+        left: 0;
+        top: 0;
+        &.active {
+            opacity: 1;
+            z-index: 1;
+        }
+    }
+}
