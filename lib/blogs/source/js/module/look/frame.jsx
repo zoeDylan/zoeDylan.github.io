@@ -10,17 +10,17 @@ class Frame extends React.Component {
         super(props);
         this.close = this.close.bind(this);
     }
-    escape2Html(str) {
-        var arrEntities = { 'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"' };
-        return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) { return arrEntities[t]; });
-    }
+ 
     componentDidMount() {
         //添加可编辑功能、取消波浪线
         $('.markdown pre code').attr({
             'contenteditable': 'true',
             'spellcheck': 'false'
         });
-
+        function escape2Html(str) {
+            var arrEntities = { 'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"' };
+            return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) { return arrEntities[t]; });
+        }
         //添加运行按钮
         $('.markdown pre').append('<span class="text-muted">//*点击代码部分可以编辑</span><button class="btn btn-info">运行</button>');
         $('.markdown pre>button').click(function () {
@@ -34,7 +34,7 @@ class Frame extends React.Component {
             } else if (codeType == 'language-css') {
                 code = `<style>${code}</style>`;
             }
-            runCode(this.escape2Html(code));
+            runCode(escape2Html(code));
         });
 
     }
