@@ -10,15 +10,22 @@ class Frame extends React.Component {
         };
         this.onInputChange = this.onInputChange.bind(this);
         this.save = this.save.bind(this);
+        this.isEdit = false;
+        setInterval(() => {
+            if (this.isEdit) {
+                this.isEdit = false;
+                this.save();
+            }
+        }, 3000);
     }
     onInputChange(text) {
+        this.isEdit = true;
         this.setState({
             text: text
         });
     }
     save() {
         _data.updateCont(this.props.tid, this.state.text);
-        alert('保存成功!');
     }
     render() {
         return <div className="frame">

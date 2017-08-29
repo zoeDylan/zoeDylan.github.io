@@ -5,6 +5,7 @@ import * as send from 'koa-send';
 import * as sendfile from 'koa-sendfile';
 import * as Static from 'koa-static';
 import * as body from 'koa-body';
+import * as path from 'path';
 import { Md } from '../md';
 
 const
@@ -45,7 +46,8 @@ koa
     .use(body({}))
     .use(router.routes())
     .use(router.allowedMethods())
-    .use(Static(__dirname + '/view'));
+    .use(Static(__dirname + '/view'))
+    .use(Static(path.join(__dirname ,'../../')));
 
 export class Admin {
     constructor(port) {
