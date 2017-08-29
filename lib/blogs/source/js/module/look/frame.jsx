@@ -10,7 +10,7 @@ class Frame extends React.Component {
         super(props);
         this.close = this.close.bind(this);
     }
- 
+
     componentDidMount() {
         //添加可编辑功能、取消波浪线
         $('.markdown pre code').attr({
@@ -44,6 +44,17 @@ class Frame extends React.Component {
     render() {
         return (
             <div className="frame">
+                <a href="https://github.com/zoeDylan" title="github" target="_block">
+                    <span className="label label-primary">
+                        <i className="glyphicon glyphicon-user"></i>
+                        Github
+                </span>
+                </a>
+                <a href="https://github.com/zoeDylan/zoeDylan.github.io/issues" title="issues" target="_block">
+                    <span className="label label-warning">
+                        <i className="glyphicon glyphicon-question-sign"></i> Issues
+                </span>
+                </a>
                 <div onClick={this.close} className="close glyphicon glyphicon-remove"></div>
                 <RMarkdown className="markdown" source={this.props.text} />
             </div>

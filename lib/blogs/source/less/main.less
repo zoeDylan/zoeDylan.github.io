@@ -1,8 +1,10 @@
 //css reset
 @import "module/normalize.less";
-body,html{
-font-family: '微软雅黑'
+body,
+html {
+    font-family: '微软雅黑'
 }
+
 .widthBox {
     max-width: 800px;
     margin: 0 auto;
@@ -22,6 +24,21 @@ font-family: '微软雅黑'
         height: 100%;
         max-width: 800px;
         margin: 0 auto;
+        >a {
+            position: absolute;
+            left: 50%;
+            margin-left: 400px;
+            top: 38px;
+            font-size: 14px;
+            color: #fff;
+            font-size: 14px;
+            &:hover {
+                text-decoration: none;
+            }
+            &+a {
+                top: 70px;
+            }
+        }
     }
     .markdown {
         padding: 20px;
@@ -53,7 +70,7 @@ font-family: '微软雅黑'
     background: rgba(0, 0, 0, .5);
     top: 0;
     left: 0;
-    .iframe{
+    .iframe {
         height: 100%;
     }
     iframe {
@@ -65,7 +82,7 @@ font-family: '微软雅黑'
         display: block;
         border: none;
     }
-    .close{
+    .close {
         position: absolute;
         left: 50%;
         margin-left: 400px;
