@@ -44,6 +44,9 @@ html {
         padding: 20px;
         overflow-y: auto;
         height: 100%;
+        img {
+            max-width: 100%;
+        }
         pre {
             button {
                 float: right;
@@ -55,6 +58,14 @@ html {
         left: 50%;
         margin-left: 400px;
         top: 10px;
+    }
+    @media screen and (max-width:640px) {
+        .frame>a,
+        .close {
+            left: auto;
+            margin-left: 0;
+            right: 10px;
+        }
     }
     &.active {
         top: 0;
@@ -88,5 +99,15 @@ html {
         margin-left: 400px;
         top: 10px;
         right: 10px;
+    }
+    @media screen and (max-width:640px) {
+        iframe{
+            width: 100%;
+        }
+        .close {
+            left: auto;
+            margin-left: 0;
+            right: 10px;
+        }
     }
 }
