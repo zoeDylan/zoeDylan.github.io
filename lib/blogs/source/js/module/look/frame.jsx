@@ -37,6 +37,8 @@ class Frame extends React.Component {
             runCode(escape2Html(code));
         });
 
+        //新标签打开
+        $('a[href^=http]').attr('target', '_block');
     }
     close() {
         $('#__look').removeClass('active');

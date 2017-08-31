@@ -1,0 +1,23 @@
+CACHE MANIFEST
+# v0.0.1
+#需要缓存的文件
+CACHE:
+./lib/blogs/static/css/main.css
+./lib/blogs/static/js/main.js
+./plugin/bootstrap/3.3.7/css/bootstrap.min.css 
+./lib/blogs/static/image/angular.svg
+./lib/blogs/static/image/bootstrap.svg
+./lib/blogs/static/image/jquery.svg
+./lib/blogs/static/image/react.svg
+./lib/blogs/static/image/vue.svg
+./plugin/jquery/3.2.1/jquery.min.js
+./plugin/bootstrap/3.3.7/js/bootstrap.min.js
+./plugin/react/15.6.1/react.min.js
+./plugin/vue/2.4.2/vue.min.js
+
+
+#不需要缓存的文件
+NETWORK:
+*
+#无法访问页面
+FALLBACK: 
