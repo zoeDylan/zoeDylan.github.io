@@ -41,7 +41,7 @@
     </p>
     <div class="widthBox" id="__blogs">
         <div class="list-group">
-            <button v-for="item in list" @click="_look(item)" type="button" class="list-group-item">
+            <button v-for="item in list" @click="location.hash='#id_'+item.id" type="button" class="list-group-item">
                 <span>{{item.title}}</span>
                 <span class="time">{{new Date(item._update).toLocaleDateString()}}</span>
             </button>
@@ -50,6 +50,7 @@
     <div id="__look"></div>
     <div class="loading active">
         <div class="frame">
+            <span>Loading~~~:)</span>
             <img src="./lib/blogs/static/image/angular.svg" alt="">
             <img src="./lib/blogs/static/image/bootstrap.svg" alt="">
             <img src="./lib/blogs/static/image/jquery.svg" alt="">
