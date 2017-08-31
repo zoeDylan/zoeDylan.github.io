@@ -44,7 +44,7 @@
                         <td>
                             <div class="form-group">
                                 <!-- <input v-model="item.title" @keyup="_data.updateTitle(item.id,item.title)" :title="item.title" class="form-control" type="text"> -->
-                                <input v-model="item.title" @blur="changeVal(item.id,item.title)" :title="item.title" class="form-control" type="text">
+                                <input v-model="item.title" @focus="saveTitle=item.title" @blur="changeVal(item.id,item.title)" :title="item.title" class="form-control" type="text">
                             </div>
                         </td>
                         <td>{{new Date(item._update).toLocaleString()}}</td>
@@ -72,6 +72,7 @@
 
         </div>
     </div>
+    <div id="__look"></div>
     <div id="__loading"></div>
     <!--{{javascript}}-->
     <script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>

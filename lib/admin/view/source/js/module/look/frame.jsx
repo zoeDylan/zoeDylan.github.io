@@ -13,7 +13,7 @@ class Frame extends React.Component {
 
     componentDidMount() {
         //添加可编辑功能、取消波浪线
-        $('.markdown pre code').attr({
+        $('#__look .markdown pre code').attr({
             'contenteditable': 'true',
             'spellcheck': 'false'
         });
@@ -22,8 +22,8 @@ class Frame extends React.Component {
             return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) { return arrEntities[t]; });
         }
         //添加运行按钮
-        $('.markdown pre').append('<span class="text-muted">//*点击代码部分可以编辑</span><button class="btn btn-info">运行</button>');
-        $('.markdown pre>button').click(function () {
+        $('#__look .markdown pre').append('<span class="text-muted">//*点击代码部分可以编辑</span><button class="btn btn-info">运行</button>');
+        $('#__look .markdown pre>button').click(function () {
             let
                 btn = $(this),
                 codeType = btn.parent().children('code').attr('class'),

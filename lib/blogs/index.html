@@ -14,15 +14,55 @@
     <!--忽略将数字变为电话号码：-->
     <meta content="telephone=no" name="format-detection" />
     <title>hello world I'm zoeDylan</title>
+    <link href="./plugin/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./lib/blogs/static/css/main.css">
+    <style>
 
-    <!--{{css}}-->
-    <link href="static/css/main.css" rel="stylesheet" />
+    </style>
 </head>
 
 <body>
+    <h2 class="title">
+        先写个页面凑合用
 
-    <!--{{javascript}}-->
-    <script src="static/js/main.js"></script>
+    </h2>
+    <p class="nav">
+        <a href="https://github.com/zoeDylan" target="_block">
+            <span class="label label-primary">
+            <i class="glyphicon glyphicon-user"></i>
+            Github
+        </span>
+        </a>
+        <a href="https://github.com/zoeDylan/zoeDylan.github.io/issues" target="_block"> <span class="label label-warning">
+            <i class="glyphicon glyphicon-question-sign"></i>
+       issues
+        </span>
+        </a>
+    </p>
+    <div class="widthBox" id="__blogs">
+        <div class="list-group">
+            <button v-for="item in list" @click="_look(item)" type="button" class="list-group-item">
+                <span>{{item.title}}</span>
+                <span class="time">{{new Date(item._update).toLocaleDateString()}}</span>
+            </button>
+        </div>
+    </div>
+    <div id="__look"></div>
+    <div class="loading active">
+        <div class="frame">
+            <img src="./lib/blogs/static/image/angular.svg" alt="">
+            <img src="./lib/blogs/static/image/bootstrap.svg" alt="">
+            <img src="./lib/blogs/static/image/jquery.svg" alt="">
+            <img src="./lib/blogs/static/image/react.svg" alt="">
+            <img src="./lib/blogs/static/image/vue.svg" alt="">
+        </div>
+    </div>
+    <script src="./plugin/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./plugin/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./plugin/react/15.6.1/react.min.js"></script>
+    <script src="./plugin/react/15.6.1/react-dom.min.js"></script>
+    <script src="./plugin/vue/2.4.2/vue.min.js"></script>
+    <script src="./lib/blogs/static/js/main.js"></script>
 </body>
 
 </html>

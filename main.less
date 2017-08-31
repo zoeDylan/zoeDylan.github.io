@@ -1,30 +1,86 @@
 //css reset
 @import "module/normalize.less";
-@import 'module/page.less';
-@import 'module/edit.less';
-@import 'module/list.less';
 body,
 html {
-    height: 100%;
-    width: 100%;
-    font-family: '微软雅黑';
+    font-family: '微软雅黑'
 }
-::-webkit-scrollbar{
-    display: none;
-}
-#__loading {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 0;
-    line-height: 30px;
+
+body>h2.title {
     text-align: center;
-    span {
-        background: rgba(0, 0, 0, .5);
-        color: #fff;
-        padding: 0 10px;
+}
+
+.nav {
+    text-align: center;
+    padding-bottom: 10px;
+    a {
+        margin: 0 5px;
     }
+}
+
+@keyframes TtoB {
+    from {
+        transform: translateY(-50px);
+    }
+    to {
+        transform: translateY(50px);
+    }
+}
+
+.loading {
+    position: fixed;
+    height: 0;
+    width: 0;
+    left: 50%;
+    top: 050%;
+    z-index: 100;
+    background: #fff;
+    overflow: hidden;
+    transition: all .3s;
+    opacity: 0;
+    .frame {
+        width: 300px;
+        height: 70px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -150px;
+        margin-top: -35px;
+        text-align: center;
+        img {
+            width: 300/6px;
+        }
+    }
+    &.active {
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        .frame {
+            img {
+                width: 300/6px;
+                transform: translateY(-50px);
+                animation: TtoB 1s alternate infinite;
+                +img {
+                    animation-delay: .2s;
+                    +img {
+                        animation-delay: .4s;
+                        +img {
+                            animation-delay: .6s;
+                            +img {
+                                animation-delay: .8s;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.widthBox {
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 #__look {
@@ -119,5 +175,15 @@ html {
         margin-left: 400px;
         top: 10px;
         right: 10px;
+    }
+    @media screen and (max-width:640px) {
+        iframe {
+            width: 100%;
+        }
+        .close {
+            left: auto;
+            margin-left: 0;
+            right: 10px;
+        }
     }
 }

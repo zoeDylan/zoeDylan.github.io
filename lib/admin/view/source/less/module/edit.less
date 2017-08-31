@@ -19,14 +19,25 @@
     .markdown {
         float: right;
         overflow-y: auto;
+        img {
+            max-width: 100%;
+        }
+        pre {
+            code {
+                outline: none;
+            }
+            button {
+                float: right;
+            }
+        }
     }
-    .saveBtn {
+    .btn-group {
         position: absolute;
         z-index: 1;
-        width: 100px;
         text-align: center;
         height: 30px;
         right: 0;
-        top: 0;
+        top: -34px;
+        padding-right: 10px;
     }
 }

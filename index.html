@@ -16,8 +16,8 @@
     <title>hello world I'm zoeDylan</title>
     <link href="./plugin/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./lib/blogs/static/css/main.css">
-    <style> 
-       
+    <style>
+
     </style>
 </head>
 
@@ -41,18 +41,21 @@
     </p>
     <div class="widthBox" id="__blogs">
         <div class="list-group">
-            <button v-for="item in list" @click="_look(item.id)" type="button" class="list-group-item">{{item.title}}</button>
+            <button v-for="item in list" @click="_look(item)" type="button" class="list-group-item">
+                <span>{{item.title}}</span>
+                <span class="time">{{new Date(item._update).toLocaleDateString()}}</span>
+            </button>
         </div>
     </div>
     <div id="__look"></div>
     <div class="loading active">
-         <div class="frame">
-             <img src="./lib/blogs/static/image/angular.svg" alt="">
-             <img src="./lib/blogs/static/image/bootstrap.svg" alt="">
-             <img src="./lib/blogs/static/image/jquery.svg" alt="">
-             <img src="./lib/blogs/static/image/react.svg" alt="">
-             <img src="./lib/blogs/static/image/vue.svg" alt="">
-         </div>
+        <div class="frame">
+            <img src="./lib/blogs/static/image/angular.svg" alt="">
+            <img src="./lib/blogs/static/image/bootstrap.svg" alt="">
+            <img src="./lib/blogs/static/image/jquery.svg" alt="">
+            <img src="./lib/blogs/static/image/react.svg" alt="">
+            <img src="./lib/blogs/static/image/vue.svg" alt="">
+        </div>
     </div>
     <script src="./plugin/jquery/3.2.1/jquery.min.js"></script>
     <script src="./plugin/bootstrap/3.3.7/js/bootstrap.min.js"></script>
