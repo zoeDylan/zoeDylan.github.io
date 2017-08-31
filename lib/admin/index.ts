@@ -5,7 +5,7 @@ import * as send from 'koa-send';
 import * as sendfile from 'koa-sendfile';
 import * as Static from 'koa-static';
 import * as body from 'koa-body';
-import * as path from 'path';
+import * as path from 'path'; 
 import { Md } from '../md';
 
 const

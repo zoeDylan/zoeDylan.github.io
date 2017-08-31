@@ -2,6 +2,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const dir = path.join(__dirname, '..', 'files/');
+if (!fs.existsSync(dir)) {
+    
+}
 class JsonFile {
     private name: string;
     private path: string;

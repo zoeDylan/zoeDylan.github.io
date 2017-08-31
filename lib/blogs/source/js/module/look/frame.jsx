@@ -40,6 +40,7 @@ class Frame extends React.Component {
     }
     close() {
         $('#__look').removeClass('active');
+        location.hash = '';
     }
     render() {
         return (
