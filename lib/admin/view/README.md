@@ -363,6 +363,46 @@ a标签默认`target`是当前页面打开链接
 ```
 ---
 
+### select 
+
+`select`标签用于定义下来列表框
+
+```html
+
+<select>
+	<option value="1">苹果</option>
+	<option value="2">梨子</option>
+	<option value="3">香蕉</option>
+</select>
+
+```
+
+`select`本身数据是来源于它里面的`option`
+
+* **`selected`属性**默认选择
+
+`selected`属性需要添加到`option`标签上面
+
+```html
+默认选择梨子
+<select>
+	<option value="1">苹果</option>
+	<option selected="selected" value="2">梨子</option>
+	<option value="3">香蕉</option>
+</select>
+
+```
+* **`disabled`** 禁用
+
+```html
+<select disabled="disabled">
+	<option value="1">苹果</option>
+	<option selected="selected" value="2">梨子</option>
+	<option value="3">香蕉</option>
+</select>
+```
+---
+
 ### textarea
 
 `textarea`叫做文本域，和`input`标签的输入框类似,也可以使用`name`、`placeholder`等属性。

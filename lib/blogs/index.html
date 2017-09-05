@@ -39,12 +39,13 @@
         </span>
         </a>
     </p>
-    <div class="widthBox" id="__blogs">
-        <div class="list-group">
+    <div class="widthBox" id="__blogs"> 
+        <div class="list-group"> 
             <button v-for="item in list" @click="location.hash='#id_'+item.id" type="button" class="list-group-item">
                 <span>{{item.title}}</span>
                 <span class="time">{{new Date(item._update).toLocaleDateString()}}</span>
             </button>
+          
         </div>
     </div>
     <div id="__look"></div>
