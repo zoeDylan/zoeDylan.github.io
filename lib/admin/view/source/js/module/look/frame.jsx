@@ -9,33 +9,37 @@ class Frame extends React.Component {
     constructor(props) {
         super(props);
         this.close = this.close.bind(this);
+        this.escape2Html = this.escape2Html.bind(this);
     }
-
+    escape2Html(str) {
+        var arrEntities = { 'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"' };
+        return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) { return arrEntities[t]; });
+    }
     componentDidMount() {
-        //添加可编辑功能、取消波浪线
-        $('#__look .markdown pre code').attr({
-            'contenteditable': 'true',
-            'spellcheck': 'false'
-        });
-        function escape2Html(str) {
-            var arrEntities = { 'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"' };
-            return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) { return arrEntities[t]; });
-        }
-        //添加运行按钮
-        $('#__look .markdown pre').append('<span class="text-muted">//*点击代码部分可以编辑</span><button class="btn btn-info">运行</button>');
-        $('#__look .markdown pre>button').click(function () {
-            let
-                btn = $(this),
-                codeType = btn.parent().children('code').attr('class'),
-                code = btn.parent().children('code').html();
-
-            if (codeType == 'language-js' || codeType == 'language-javascript') {
-                code = `<script>${code}</script>`;
-            } else if (codeType == 'language-css') {
-                code = `<style>${code}</style>`;
+        const _self = this;
+        $('.markdown pre').each((i, elem) => {
+            const
+                fe = $(elem),
+                codeElem = fe.children('code');
+            if (codeElem.attr('class')=='language-html'&&fe.children('button').length <= 0) {
+                //添加可编辑功能、取消波浪线
+                codeElem.attr({
+                    'contenteditable': 'true',
+                    'spellcheck': 'false'
+                });
+                //添加运行按钮
+                fe.append('<span class="text-muted">//*点击代码部分可以编辑</span><button class="btn btn-info">运行</button>');
+                fe.children('button').click(function () {
+                    let
+                        btn = $(this),
+                        codeType = btn.parent().children('code').attr('class'),
+                        code = btn.parent().children('code').html();
+                    runCode(_self.escape2Html(code));
+                });
             }
-            runCode(escape2Html(code));
         });
+        //新标签打开
+        $('a[href^=http]').attr('target', '_block');
 
     }
     close() {

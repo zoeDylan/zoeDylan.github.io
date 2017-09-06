@@ -1,0 +1,21 @@
+<style>
+    .yellow{
+        background: #f00;
+        background: #ff0;
+    }
+    .red{
+        background: #f00;
+    }
+    .blue{
+        background: #00f;
+    }
+    div > .red{
+        background: #f00;
+    }
+</style>
+
+<div class="yellow">赋值后来居上：一个选择器里面相同属性后来居上。</div>
+<div class="red blue">赋值后来居上：两个选择器也是后来居上。</div>
+<div>
+    <div class="red blue">优先级：因为这个DIV是包裹在另外一个DIV里面，所以样式表里面(div>.red)的优先级比(.blue)高</div>
+</div>

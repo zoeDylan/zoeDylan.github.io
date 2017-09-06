@@ -51,7 +51,7 @@ class Frame extends React.Component {
             const
                 fe = $(elem),
                 codeElem = fe.children('code');
-            if (fe.children('button').length <= 0) {
+            if (codeElem.attr('class')=='language-html'&&fe.children('button').length <= 0) {
                 //添加可编辑功能、取消波浪线
                 codeElem.attr({
                     'contenteditable': 'true',
@@ -64,12 +64,6 @@ class Frame extends React.Component {
                         btn = $(this),
                         codeType = btn.parent().children('code').attr('class'),
                         code = btn.parent().children('code').html();
-
-                    if (codeType == 'language-js' || codeType == 'language-javascript') {
-                        code = `<script>${code}</script>`;
-                    } else if (codeType == 'language-css') {
-                        code = `<style>${code}</style>`;
-                    }
                     runCode(_self.escape2Html(code));
                 });
             }
