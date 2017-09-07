@@ -1,21 +1,35 @@
-<style>
-    .yellow{
-        background: #f00;
-        background: #ff0;
-    }
-    .red{
-        background: #f00;
-    }
-    .blue{
-        background: #00f;
-    }
-    div > .red{
-        background: #f00;
-    }
-</style>
 
-<div class="yellow">赋值后来居上：一个选择器里面相同属性后来居上。</div>
-<div class="red blue">赋值后来居上：两个选择器也是后来居上。</div>
-<div>
-    <div class="red blue">优先级：因为这个DIV是包裹在另外一个DIV里面，所以样式表里面(div>.red)的优先级比(.blue)高</div>
-</div>
+    function escape2Html(str) {
+        var arrEntities = {
+            'lt': '<',
+            'gt': '>',
+            'nbsp': ' ',
+            'amp': '&',
+            'quot': '"'
+        };
+        return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function(all, t) {
+            return arrEntities[t];
+        });
+    }
+    $('pre.highlight.html').each((i, elem) => {
+        const
+            fe = $(elem),
+            codeElem = fe.children('code');
+        if (fe.children('button').length <= 0) {
+            //添加可编辑功能、取消波浪线
+            codeElem.attr({
+                'contenteditable': 'true',
+                'spellcheck': 'false'
+            });
+            //添加运行按钮
+            fe.append('<span class="text-muted">//*点击代码部分可以编辑</span><button class="btn btn-info">运行</button>');
+            fe.children('button').click(function() {
+                let
+                    btn = $(this),
+                    codeType = btn.parent().children('code').attr('class'),
+                    code = btn.parent().children('code').html().replace(/<[a-z]+ +[a-z]+="[a-z]+">|<\/[a-z]+>/g, '');
+                let win = window.open('');
+                win.document.write(escape2Html(code));
+            });
+        }
+    });

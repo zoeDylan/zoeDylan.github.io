@@ -2,7 +2,7 @@ const
     RMarkdown = require('react-markdown'),
     // markdown = require('markdown').markdown,
     // MD = require('markdown-it'),
-    // md = new MD(),
+    // md = new MD(), 
     runCode = require('../runCode');
 
 class Frame extends React.Component {
@@ -11,7 +11,7 @@ class Frame extends React.Component {
         this.close = this.close.bind(this);
         this.escape2Html = this.escape2Html.bind(this);
     }
-    
+
     escape2Html(str) {
         var arrEntities = { 'lt': '<', 'gt': '>', 'nbsp': ' ', 'amp': '&', 'quot': '"' };
         return str.replace(/&(lt|gt|nbsp|amp|quot);/ig, function (all, t) { return arrEntities[t]; });
@@ -22,7 +22,8 @@ class Frame extends React.Component {
             const
                 fe = $(elem),
                 codeElem = fe.children('code');
-            if (codeElem.attr('class')=='language-html'&&fe.children('button').length <= 0) {
+            hljs.highlightBlock(codeElem.get(0));
+            if (codeElem.hasClass('language-html') && fe.children('button').length <= 0) {
                 //添加可编辑功能、取消波浪线
                 codeElem.attr({
                     'contenteditable': 'true',
@@ -30,12 +31,21 @@ class Frame extends React.Component {
                 });
                 //添加运行按钮
                 fe.append('<span class="text-muted">//*点击代码部分可以编辑</span><button class="btn btn-info">运行</button>');
+                // fe.children('button').click(function () {
+                //     let
+                //         btn = $(this),
+                //         codeType = btn.parent().children('code').attr('class'),
+                //         code = btn.parent().children('code').html();
+                //     runCode(_self.escape2Html(code));
+                // });
                 fe.children('button').click(function () {
                     let
                         btn = $(this),
-                        codeType = btn.parent().children('code').attr('class'),
-                        code = btn.parent().children('code').html();
-                    runCode(_self.escape2Html(code));
+                        code = btn.parent().children('code').html().replace(/\<[a-z \=\"\-\/\_]+\>/g, '');
+                    console.log( btn.parent().children('code').html());
+                    console.log(_self.escape2Html(code));
+                    let win = window.open('');
+                    win.document.write(_self.escape2Html(code));
                 });
             }
         });
@@ -62,12 +72,16 @@ class Frame extends React.Component {
                 </span>
                 </a>
                 <div onClick={this.close} className="close glyphicon glyphicon-remove"></div>
-                <RMarkdown className="markdown" source={this.props.text +
-                    '\n\n --- \n\n *文章创建时间:' + new Date(this.props.item._insert).toLocaleDateString() + '*' +
-                    '\n\n *最后修改时间:' + new Date(this.props.item._update).toLocaleDateString() + '*' +
-                    '\n\n *By:zoeDylan*'} />
+                <RMarkdown
+                    className="markdown"
+                    source={this.props.text +
+                        '\n\n --- \n\n *文章创建时间:' + new Date(this.props.item._insert).toLocaleDateString() + '*' +
+                        '\n\n *最后修改时间:' + new Date(this.props.item._update).toLocaleDateString() + '*' +
+                        '\n\n *By:zoeDylan*'}
+                />
             </div>
         )
     }
 }
 module.exports = Frame;
+
