@@ -1,0 +1,322 @@
+# 前端-从零开始系列-5:常用CSS属性(元素类型和定位)
+
+**和HTML一样，我仅仅讲解一些很常用的，详细的可以去[W3C](http://www.w3school.com.cn/cssref/index.asp)了解**
+
+### 已经用烂了的属性列表
+
+表里的属性主要是后面会用到，这里先了解
+
+属性名|值|说明
+---|---|---
+height|10px|元素高度
+width|10px|元素宽度
+color|#666|字体颜色
+background|#666|背景色
+
+**PS：css中的属性都有`inherit`这个值，继承父元素相同属性**
+
+---
+
+### display 元素类型 [w3c](http://www.w3school.com.cn/cssref/pr_class_display.asp)
+
+值|说明
+---|---
+inline|内联元素
+block|块级元素
+inline-block|内联快元素
+
+元素是内联元素还是块元素，这个属性就可以完全的解决。
+
+
+1. **inline** 内联元素
+
+当一个元素赋值为`inline`，这个元素就变成了内联元素，下面我拿一个`DIV`标签来举例
+
+```html
+
+<style>
+.inLine{
+   display:inline;
+}
+</style>
+<div>我是一个DIV</div>
+<div class="inLine">我也是一个DIV，我变成了内联元素</div>
+<span>我是一个SPAN</span>
+```
+`div`自身是一个块元素，但是我们给它`display:inlin`属性后，它变成了一个级联元素。
+
+级联元素给它赋值高宽是没有意义的。
+```html
+<style>
+div{
+   background:#f60;
+   height:100px;
+   width:100px;
+}
+.inLine{
+   display:inline;
+}
+</style>
+<div>我是一个DIV</div>
+<div class="inLine">我也是一个DIV,我的宽高无效</div>
+```
+2. **block** 块级元素
+
+当一个元素赋值为`block`，这个元素就变成了块元素,拿个`span`标签举例
+
+```html
+<style>
+span{
+   background:#f60;
+   height:100px;
+   width:100px;
+}
+.block{
+   display:block;
+}
+</style>
+<span>我是一个span</span>
+<span class="block">我是一个span,我变成了块元素</span>
+```
+3. **inline-block** 内联块元素
+
+这个元素有意思，保留了块元素的宽高能力，也可以当作内联元素来使用.
+
+```html
+<style>
+span,div{
+   background:#f60;
+   height:100px;
+   width:100px;
+}
+.inline-block{
+   display:inline-block;
+}
+</style>
+<span>我是一个span</span>
+<span class="inline-block">我是一个span,我变成了内联块元素</span>
+<div class="inline-block">我是一个span,我变成了内联块元素</div>
+我就是一段普通文字
+<div>我就是一个普通的DIV</div>
+```
+
+4. **none** 隐藏元素
+
+当一个页面的一个元素不让它展示的时候，下面就隐藏一个`span`标签
+```html
+<style>
+  span{
+      display:none;
+  }
+</style>
+<div>我就是一个普通的DIV,下面有个SPAN</div>
+<span>我是一个span</span>
+```
+
+---
+
+### position 元素定位类型 [w3c](http://www.w3school.com.cn/cssref/pr_class_position.asp)
+
+常用属性:
+值|说明
+---|---
+absolute|相对于父级绝对定位
+fixed|相对于浏览器窗口绝对定位
+relative|相对定位
+static|没有定位
+
+元素的默认定位`position`属性都是`static`
+
+当赋值`relative`、`fixed`、`absolute`时,相对应的`top`、`right`、`bottom`、`left`、`z-index`属性也会生效
+
+属性|值(、分隔的选择其一，+-代表正负)|说明
+---|---|---
+top|auto、+-10%、+-10px|元素顶部偏移距离
+right|auto、+-10%、+-10px|元素右边偏移距离
+bottom|auto、+-10%、+-10px|元素底部偏移距离
+left|auto、+-10%、+-10px|元素左边偏移距离
+z-index|auto、+-10|元素层叠顺序
+
+```html
+<style>
+	div{
+    	width:300px;
+        height:300px;
+        background:#f60;
+    }
+	.fixed{
+    	position:fixed;
+        top:30%;
+        right:30%;
+    }
+    .box{
+    	position:relative;
+        left:100px;
+        top:100px;
+    }
+    .absolute{
+        position:absolute;
+        bottom:-100px;
+        left:100px;
+        width:270px;
+        height:270px;
+        background:#f00;
+    }
+
+</style>
+
+<div class="fixed">相对于浏览器绝对定位<br>position:fixed;</div>
+<div class="box">相对定位
+	position:relative;
+    <div class="absolute">相对于父元素的绝对定位:<br>position:absolute;</div>
+</div>
+```
+
+不过，`left和right`、`top和bottom`,不能同时使用.
+
+```html
+
+<style>
+	div{background:#f60;width:100px;height:100px;position:relative;}
+	.left{
+    	left:30px;
+        right:30px;
+    }
+    .leftAuto{
+    	left:auto;
+        right:30px;
+    }
+</style>
+<div class="left">left和right同时出现只取left</div>
+<div class="leftAuto">left和right同时出现只取left</div>
+```
+`top和bottom`相同，同时出现只取`top`，如果`top`值为`auto`则取`bottom
+
+`z-index`处理元素的层叠顺序,浏览器默认是层叠顺序是后来居上,值为`0`;
+
+```html
+<style>
+	div{width:100px;height:100px;position:absolute;background:#f60;left:10px;top:10px}
+    div div{background:#f00;}
+    div+div{background:#0f0;left:20px;top:20px;}
+    div.zindex {left:150px;top:10px;background:#f60;}
+    div.zindex div{z-index:1;}
+    div.zindex div + div{z-index:0;}
+</style>
+<div><div></div><div>默认层叠顺序</div></div>
+<div class="zindex"><div>z-index层叠顺序</div><div></div></div>
+```
+运行代码可以看到，使用了`z-index`,红色层跑到了最上面。
+
+
+### float浮动
+值|说明
+---|---
+left|左浮动
+right|右浮动
+none|默认
+
+`float`就是元素停靠的方向
+
+使用`float`就不能使用绝对定位，浏览器解析会自动优先使用绝对定位。
+
+```html
+<style>
+div{background:#0f0;}
+span{display:block;height:100px;width:100px;background:#f60;}
+	.left{float:left;}
+    .right{float:right;}
+</style>
+<div>
+<span class="left">left</span>
+<span class="right">right</span>
+<p>浮动测试</p>
+</div>
+```
+运行代码，浮动效果就可以看出来了。
+
+但是有一个问题是，使用浮动后，外部的父元素解析不到浮动元素的高度，这个时候就需要`clear`来清除浮动
+
+
+```html
+<style>
+div{background:#0f0;}
+span{display:block;height:100px;width:100px;background:#f60;}
+	.left{float:left;}
+    .right{float:right;}
+    p{clear:both;}
+</style>
+<div>
+<span class="left">left</span>
+<span class="right">right</span>
+<p>浮动测试</p>
+</div>
+```
+
+### overflow
+
+当我们的元素指定高度后，里面内容不让它超出元素高度，这个时候就使用`overflow`来控制;
+
+值|说明
+---|---
+visible|默认值,内容超出不处理
+hidden|内容超出部分不显示
+scroll|内容超出部分不显示，添加滚动条
+auto|内容超出部分不显示，如果内容超出添加滚动条
+
+```html
+<style>
+div{height:100px;width:100px;background:#f60;}
+.hidden{overflow :hidden;}
+.scroll{overflow :scroll;}
+.auto{overflow :auto;}
+</style>
+<div class="hidden">隐藏超出内容，隐藏超出内容，隐藏超出内容，隐藏超出内容，</div>
+<div class="scroll">超出部分滚动，超出部分滚动，超出部分滚动，超出部分滚动，超出部分滚动，</div>
+<div class="auto">超出显示滚动条，超出显示滚动条，超出显示滚动条，超出显示滚动条，</div>
+
+```
+### cursor
+
+`cursor`用于改变光标样式,直接运行代码查看。
+
+值|说明
+---|---
+default|默认
+auto|默认
+crosshair|十字光标
+pointer|手
+move|移动
+e-resize|向右
+ne-resize|右上
+nw-resize|左上
+n-resize|上
+se-resize|右下
+sw-resize|左下
+s-resize|下
+w-resize|左
+text|文本
+wait|忙碌
+help|问号
+
+```html
+<style>
+	div{widht:100px;height:100px;background:#f60;}
+</style>
+<div style="cursor:crosshair;">crosshair</div>
+<div style="cursor:pointer;">pointer</div>
+<div style="cursor:move;">move</div>
+<div style="cursor:e-resize;">e-resize</div>
+<div style="cursor:ne-resize;">ne-resize</div>
+<div style="cursor:nw-resize;"></div>
+<div style="cursor:n-resize;">n-resize</div>
+<div style="cursor:se-resize;">se-resize</div>
+<div style="cursor:sw-resize;">sw-resize</div>
+<div style="cursor:s-resize;">s-resize</div>
+<div style="cursor:w-resize;">w-resize</div>
+<div style="cursor:text;">text</div>
+<div style="cursor:wait;">wait</div>
+<div style="cursor:help;">help</div>
+```
+
+本篇完。

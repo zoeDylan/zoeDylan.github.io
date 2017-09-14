@@ -1,8 +1,6 @@
 const
-    RMarkdown = require('react-markdown'),
-    // markdown = require('markdown').markdown,
-    // MD = require('markdown-it'),
-    // md = new MD(),
+    MD = require('markdown-it'),
+    md = new MD(),
     runCode = require('../runCode');
 
 class Frame extends React.Component {
@@ -21,7 +19,7 @@ class Frame extends React.Component {
             const
                 fe = $(elem),
                 codeElem = fe.children('code');
-            if (codeElem.attr('class')=='language-html'&&fe.children('button').length <= 0) {
+            if (codeElem.attr('class') == 'language-html' && fe.children('button').length <= 0) {
                 //添加可编辑功能、取消波浪线
                 codeElem.attr({
                     'contenteditable': 'true',
@@ -61,10 +59,12 @@ class Frame extends React.Component {
                 </span>
                 </a>
                 <div onClick={this.close} className="close glyphicon glyphicon-remove"></div>
-                <RMarkdown className="markdown" source={this.props.text +
-                    '\n\n --- \n\n *文章创建时间:' + new Date(this.props.item._insert).toLocaleDateString() + '*' +
-                    '\n\n *最后修改时间:' + new Date(this.props.item._update).toLocaleDateString() + '*' +
-                    '\n\n *By:zoeDylan*'} />
+                <div className="markdown markdown-body" dangerouslySetInnerHTML={{
+                    __html: md.render(this.props.text +
+                        '\n\n --- \n\n *文章创建时间:' + new Date(this.props.item._insert).toLocaleDateString() + '*' +
+                        '\n\n *最后修改时间:' + new Date(this.props.item._update).toLocaleDateString() + '*' +
+                        '\n\n *By:zoeDylan*')
+                }} ></div>
             </div>
         )
     }

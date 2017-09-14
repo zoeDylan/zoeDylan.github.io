@@ -1,9 +1,6 @@
 const
-    RMarkdown = require('react-markdown'),
-    // markdown = require('markdown').markdown,
-    // MD = require('markdown-it'),
-    // md = new MD(), 
-    runCode = require('../runCode');
+    MD = require('markdown-it'),
+    md = new MD();
 
 class Frame extends React.Component {
     constructor(props) {
@@ -31,18 +28,11 @@ class Frame extends React.Component {
                 });
                 //添加运行按钮
                 fe.append('<span class="text-muted">//*点击代码部分可以编辑</span><button class="btn btn-info">运行</button>');
-                // fe.children('button').click(function () {
-                //     let
-                //         btn = $(this),
-                //         codeType = btn.parent().children('code').attr('class'),
-                //         code = btn.parent().children('code').html();
-                //     runCode(_self.escape2Html(code));
-                // });
                 fe.children('button').click(function () {
                     let
                         btn = $(this),
                         code = btn.parent().children('code').html().replace(/\<[a-z \=\"\-\/\_]+\>/g, '');
-                    console.log( btn.parent().children('code').html());
+                    console.log(btn.parent().children('code').html());
                     console.log(_self.escape2Html(code));
                     let win = window.open('');
                     win.document.write(_self.escape2Html(code));
@@ -72,16 +62,14 @@ class Frame extends React.Component {
                 </span>
                 </a>
                 <div onClick={this.close} className="close glyphicon glyphicon-remove"></div>
-                <RMarkdown
-                    className="markdown"
-                    source={this.props.text +
+                <div className="markdown markdown-body" dangerouslySetInnerHTML={{
+                    __html: md.render(this.props.text +
                         '\n\n --- \n\n *文章创建时间:' + new Date(this.props.item._insert).toLocaleDateString() + '*' +
                         '\n\n *最后修改时间:' + new Date(this.props.item._update).toLocaleDateString() + '*' +
-                        '\n\n *By:zoeDylan*'}
-                />
+                        '\n\n *By:zoeDylan*')
+                }} ></div>
             </div>
         )
     }
 }
 module.exports = Frame;
-

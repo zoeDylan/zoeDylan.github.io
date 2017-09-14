@@ -1,5 +1,7 @@
 const
-    ReactMarkdown = require('react-markdown'),
+    // ReactMarkdown = require('react-markdown'),
+    MD = require('markdown-it'),
+    md = new MD(),
     Editor = require('./editor.jsx'),
     _data = require('../data.js'),
     runCode = require('../runCode'),
@@ -51,7 +53,7 @@ class Frame extends React.Component {
             const
                 fe = $(elem),
                 codeElem = fe.children('code');
-            if (codeElem.attr('class')=='language-html'&&fe.children('button').length <= 0) {
+            if (codeElem.attr('class') == 'language-html' && fe.children('button').length <= 0) {
                 //添加可编辑功能、取消波浪线
                 codeElem.attr({
                     'contenteditable': 'true',
@@ -81,7 +83,7 @@ class Frame extends React.Component {
                 <button onClick={this.preview} className="btn btn-success">预览</button>
             </div>
             <Editor onInputChange={this.onInputChange} className="editor" id={'editor_' + new Date().getTime()} text={this.props.text} />
-            <ReactMarkdown className="markdown" source={this.state.text} />
+            <div className="markdown markdown-body" dangerouslySetInnerHTML={{ __html: md.render(this.state.text) }} ></div>
         </div>;
     }
 }
