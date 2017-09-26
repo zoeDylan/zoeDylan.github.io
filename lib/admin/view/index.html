@@ -51,6 +51,7 @@
                         <td>{{new Date(item._insert).toLocaleString()}}</td>
                         <td>
                             <div class="btn-group">
+                                <button @click="_look(item.id);" type="button" class="btn btn-success">预览</button>
                                 <button @click="_edit.edit(item.id);" type="button" class="btn btn-default">编辑</button>
                                 <button @click="remove(item.id)" type="button" class="btn btn-danger">删除</button>
                             </div>
