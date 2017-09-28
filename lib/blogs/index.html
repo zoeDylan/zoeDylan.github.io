@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" manifest="./appcache.manifest" >
+<html lang="en" manifest="./appcache.manifest">
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -33,17 +33,12 @@
         </a>
         <a href="https://github.com/zoeDylan/zoeDylan.github.io/issues" target="_block"> <span class="label label-warning">
             <i class="glyphicon glyphicon-question-sign"></i>
-       issues
+           issues
         </span>
         </a>
     </p>
-    <div class="widthBox" id="__blogs"> 
-        <div class="list-group"> 
-            <button v-for="item in list" @click="location.hash='#id_'+item.id" type="button" class="list-group-item">
-                <span>{{item.title}}</span>
-                <span class="time">{{new Date(item._update).toLocaleDateString()}}</span>
-            </button>
-        </div>
+    <div class="widthBox" id="__blogs">
+        <div class="list-group" id="__list"></div>
     </div>
     <div id="__look"></div>
     <div class="loading active">
@@ -60,7 +55,6 @@
     <script src="./plugin/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="./plugin/react/15.6.1/react.min.js"></script>
     <script src="./plugin/react/15.6.1/react-dom.min.js"></script>
-    <script src="./plugin/vue/2.4.2/vue.min.js"></script> 
     <script src="./plugin/highlight.js/9.10.0/highlight.min.js"></script>
     <script src="./lib/blogs/static/js/main.js"></script>
 </body>
