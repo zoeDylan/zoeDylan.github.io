@@ -1,0 +1,1003 @@
+<!-- 
+    注释，不进行渲染
+    声明：使用HTML5标准进行编码，不考虑兼容
+-->
+
+<!-- 
+     作用：申明文档
+     兼容：所有浏览器
+     解析：
+      1. 此代码始终放在文档第一位
+      2. 因为HTML5不是基于SGML标准，所以不需要引用DTD规则
+     存在：必须
+-->
+<!DOCTYPE html>
+
+<!--
+    作用：HTML定义
+    兼容：所有浏览器
+    解析：
+     1. 告诉浏览器这是一个HTML页面 
+     2. 可以给一个manifest属性，链接缓存信息文件：*.appcache
+    存在：必须
+ -->
+<html>
+
+<!-- 
+    作用：文档头
+    兼容：所有浏览器
+    解析：
+     1. 定义头部，所有头部元素容器：base/link/meta/script/style/title
+     2. 元素必须在html标签下面的第一个子元素
+    存在：必须
+ -->
+
+<head>
+    <!-- 
+        作用：元信息
+        兼容：所有浏览器
+        解析：
+         1. 必须存在于head标签
+         2. 空元素
+         3. content属性必须存在：定义相关元信息
+         4. name或http-equiv属性可选
+         5. name:用于定义一些文档信息相关的内容，关键词、作者、描述等
+         6. http-equiv：用于定义与浏览器有交互的一些内容，重定向、编码等
+         7. scheme属性：用处不大，忽略
+     -->
+
+    <!-- 定义文档编码 -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- 定义作者信息 -->
+    <meta name="author" content="zoeDylan">
+    <!-- 定义关键词 -->
+    <meta name="keywords" content="zoedyaln,html,web,fe">
+
+    <!-- 
+        作用：标题
+        兼容：所有浏览器
+        解析：
+         1. 定义文档标题作用，用于展示在浏览器的标签上面
+         2. dir属性（用处不大），定义文本方向
+          1. rtl：元素中，内容文本向右
+          2. ltl：元素中，内容文本向左
+         3. lang属性（用处不大），定义元素内容语言代码
+         4. 上面两个属性没有实际的什么效果，可忽略
+        存在：必须
+     -->
+    <title>HTLM元素运用完整版</title>
+    <style>
+        fieldset {
+            margin-top: 20px
+        }
+        
+        legend {
+            font-weight: 700;
+            padding: 0 20px
+        }
+    </style>
+    <base target="_blank">
+</head>
+<!-- 
+    作用：文档内容
+    兼容：所有浏览器
+    解析：
+     1. 元素必须在html标签下面的一级子元素
+    存在：必须
+ -->
+
+<body>
+
+    <p><b>PS:源代码有html、doctype、body、head标签的解析，不包含已经不建议使用的标签：<a   href="http://www.w3school.com.cn/tags/index.asp">全览</a></b></p>
+    <fieldset>
+        <legend>a</legend>
+        <pre>
+作用：超链接，超文本链接
+兼容：所有浏览器
+解析：
+ 1. 用于跳转页面
+ 2. href属性定义链接地址
+        </pre>
+        <ol>
+            <li>
+                <a href="./html元素完整版.html">默认:点击后会改变字体颜色</a>
+            </li>
+            <li>
+                <a href="./html元素完整版.html" download="html元素完整版.html">定义:download属性，下载文件</a>
+            </li>
+            <li id="aTest_1">
+                <a href="#aTest_1">href属性使用<b>#</b>开头可以定义描点</a>
+            </li>
+            <li>
+                <a href="tel:13566666666">href属性使用<b>tel:+号码</b>可以在拨打电话</a>
+            </li>
+            <li>
+                <a href="sms:13566665555">href属性使用<b>sms:+号码</b>开头可以在发送短信</a>
+            </li>
+            <li>
+                <a href="mailto:627213037@qq.com">href属性使用<b>sms:邮箱地址</b>开头可以在发送邮件</a>
+            </li>
+            <li>
+                <a href="javascript:alert('JS执行');">javascript: <b>JS代码</b> ;</a>
+            </li>
+            <li>
+                <p>targe属性用于控制以怎样的形式打开页面</p>
+                <a href="./html元素完整版.html">_blank:新窗口打开页面</a><br>
+                <a href="./html元素完整版.html" target="_self">_self:当前文档打开，默认值</a><br>
+                <a href="./html_frameset/index.html">更多的在这里进行查看</a>
+            </li>
+            <li>
+                media: 这个属性暂时没有任何意义
+            </li>
+            <li>
+                rel： 这个也没有多大意义，不过对搜索引擎有一定支撑
+            </li>
+            <li>
+                type: 目标文档的 MIME 类型。
+            </li>
+        </ol>
+
+    </fieldset>
+    <fieldset>
+        <legend>abbr</legend>
+        <pre>
+作用：简称
+兼容：所有浏览器
+解析：
+ 1. 引入这个便签是便于在一些缩写的地方对搜索引擎展示更多的信息
+        </pre>
+        <p>鼠标放在<b><abbr title="zoeDylan,一个前端攻城獅">zoeDylan</abbr></b>上面查看缩写</p>
+    </fieldset>
+    <fieldset>
+        <legend>address</legend>
+        <pre>
+作用：文档、文章信息
+兼容：所有浏览器
+解析：
+ 1. 放在body内部表示文档信息
+ 2. 放在正article内部表示文章信息
+ 3. 语义化，建议放在footer标签里面
+        </pre>
+        <address>
+         我叫 zoeDylan <br>
+         联系方式：<br>
+         TEL:135******58<br>
+         email:<a   href="mailto:627213037@qq.com">627213037@qq.com</a>
+        </address>
+    </fieldset>
+    <fieldset>
+        <legend>area、map</legend>
+        <p></p>
+        <p></p>
+        <pre>
+作用： 图像映射
+兼容：所有浏览器
+解析：
+ 1. map标签用于定义一个客户端图像映射,翻译下就是给图片的一个区域定义一个点击事件
+ 2. area标签用于定义具体的点击区域和事件
+ 3. area标签href、alt、target属性与a标签的属性一样
+ 4. area的coords属性用于定义区域坐标
+ 5. area的shape属性用于定义区域形状：rect(默认)/circ/poly 
+ 4. map的name用于img的usename属性调用
+        </pre>
+        <a href="./html_map/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>article</legend>
+        <pre>
+标签规定独立的自包含内容
+兼容：HTML5
+解析：
+ 1. 语义化标签 
+        </pre>
+        <article>
+            <h1>Internet Explorer 9</h1>
+            <p>Windows Internet Explorer 9（简称 IE9）于 2011 年 3 月 14 日发布.....</p>
+        </article>
+    </fieldset>
+    <fieldset>
+        <legend>aside</legend>
+        <pre>
+标签定义其所处内容之外的内容。
+兼容：HTML5
+解析：
+ 1. 语义化标签 
+        </pre>
+        <aside>
+            <h1>Internet Explorer 9</h1>
+            <p>Windows Internet Explorer 9（简称 IE9）于 2011 年 3 月 14 日发布.....</p>
+        </aside>
+    </fieldset>
+    <fieldset>
+        <legend>audio/video</legend>
+        <pre>
+作用：音频、视频
+兼容：HTML5
+解析： 
+ 1. controls="controls" 属性设置显示控制按钮
+ 2. src属性设置播放地址
+ 3. autoplay="autoplay"属性设置自动播放
+ 4. loop="loop"设置循环播放
+ 5. muted=""属性表示静音
+ 6. preload="preload"表示预加载,autoplay属性存在时无效
+ 7. width、height表示视频的宽高
+ 8. poster属性定义一个视频未播放时的显示画面
+        </pre>
+        <a href="./html_audio_video/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+
+        <legend>b</legend>
+        <pre>
+作用：加粗
+兼容：所有浏览器
+解析：
+ 1. 加粗一个或一段文字
+        </pre>
+        <b>我被加粗了</b>前面的被加粗了
+    </fieldset>
+    <fieldset>
+        <legend>base</legend>
+        <pre>
+作用：链接默认配置
+兼容：所有浏览器
+解析：
+ 1. 此标签应写在head标签里面
+ 2. 此标签设置后，页面相对定位将基于此标签的href属性进行定位
+ 3. target属性和a标签target属性一样，设置它后会针对全局a标签的target默认属性进行更改
+        </pre>
+        <a href="./html_base/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>bdo</legend>
+        <pre>
+作用：文字方向
+兼容：所有浏览器
+解析：
+ 1. 文字反向
+ 2. dir属性：rtl和ltr，从右到左和从左到右
+        </pre>
+        <p>我是正常文字</p>
+        <p><bdo dir="rtl">我反了</bdo></p>
+    </fieldset>
+    <fieldset>
+        <legend>big</legend>
+        <pre>
+作用：大号文字
+兼容：所有浏览器
+解析：
+ 1. 放大文字
+ 2. 有时候是加粗
+        </pre>
+        <p>我<big>是big</big></p>
+
+    </fieldset>
+    <fieldset>
+        <legend>blockquote</legend>
+        <pre>
+作用：定义块引用
+兼容：所有浏览器
+
+        </pre>
+
+        <blockquote>
+            Here is a long quotation here is a long quotation here is a long quotation here is a long quotation here is a long quotation here is a long quotation here is a long quotation here is a long quotation here is a long quotation.
+        </blockquote> 之间的所有文本都会从常规文本中分离出来，经常会在左、右两边进行缩进（增加外边距），而且有时会使用斜体。也就是说，块引用拥有它们自己的空间。
+    </fieldset>
+    <fieldset>
+        <legend>br</legend>
+        <pre>
+作用：换行
+兼容：所有浏览器
+
+        </pre> 文字
+        <br/>换行
+
+        <p>
+            <a href="http://www.w3school.com.cn/tags/tag_br_prop_clear.asp">标签的<br/> clear 属性</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>button</legend>
+        <pre>
+作用：按钮
+兼容：所有浏览器
+解析：
+ 1. 综合了input的按钮属性
+ 2. 不建议用于表单提交
+        </pre>
+        <button>我是一个按钮</button>
+    </fieldset>
+    <fieldset>
+        <legend>canvas</legend>
+        <pre>
+作用：绘图
+兼容：HTML5
+解析：
+ 1. HTML5新增最带感的标签
+ 2. 没有JS这个标签没什么用
+        </pre>
+        <a href="./html_canvas/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>caption</legend>
+        <p>定义表单标题</p>
+        <a href="./html_table/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>col、colgroup</legend>
+        <p>定义表单列或列组属性</p>
+        <a href="./html_table/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>datalist</legend>
+        <pre>
+作用：定义选项列表
+兼容：HTML5
+解析：
+ 1. 配合input标签使用
+ 2. 配合输入法展示列表值
+        </pre> 输入:a
+        <br>
+        <input list="_datalist" />
+        <datalist id="_datalist">
+          <option value="abcd">
+          <option value="alert">
+          <option value="default">
+        </datalist>
+    </fieldset>
+    <fieldset>
+        <legend>dd</legend>
+        <p>dl列表的内容</p>
+        <a href="./html_list/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>del</legend>
+        <pre>
+作用：表示被删除文本
+兼容：所有浏览器
+        </pre>
+        <p>这里有一段文字，不过这里是<del>被删除的</del></p>
+    </fieldset>
+    <fieldset>
+        <legend>div</legend>
+        <div>我想div标签我不用去解释什么了</div>
+    </fieldset>
+    <fieldset>
+        <legend>dl</legend>
+        <p>定义一个列表</p>
+        <a href="./html_list/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>dt</legend>
+        <p>定义dl列表标题</p>
+        <a href="./html_list/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>embed</legend>
+        <pre>
+作用：嵌入外部内容
+兼容：HTML5
+解析：
+ 1. 此标签用处少
+        </pre>
+        <a href="http://www.w3school.com.cn/tiy/t.asp?f=html5_embed">一个示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>fieldset</legend>
+        <pre>
+作用：一个边框
+兼容：所有浏览器
+解析：
+ 1. 本文档中的边框就是用的它
+ 2. 它的子元素legend是它的标题
+        </pre>
+        <fieldset>
+            我没有标题
+        </fieldset>
+        <fieldset>
+            <legend>我是标题</legend>
+            我是内容
+        </fieldset>
+    </fieldset>
+    <fieldset>
+        <legend>figcaption</legend>
+        <pre>
+兼容：HTML5
+        </pre>
+        <p> figure 元素的标题</p>
+        <figure>
+            <img src="./html_audio_video/img.jpg" alt="">
+            <figcaption>什么鬼</figcaption>
+        </figure>
+    </fieldset>
+    <fieldset>
+        <legend>figure</legend>
+        <pre>
+作用：定义独立的流内容
+兼容：HTML5
+解析：
+ 1. 删除它不应该影响文档流
+ 2. 我也没搞懂这个标签
+        </pre>
+        <figure>
+            <img src="./html_audio_video/img.jpg" alt="">
+            <figcaption>什么鬼</figcaption>
+        </figure>
+    </fieldset>
+    <fieldset>
+        <legend>footer</legend>
+        <pre>
+作用：语义化，文档底部
+兼容：HTML5
+解析：
+ 1. 就一个语义化的标签
+        </pre>
+        <footer>
+            和div用处一样
+        </footer>
+    </fieldset>
+    <fieldset>
+        <legend>form</legend>
+        <pre>
+作用：定义一个表单
+兼容：所有浏览器
+解析：
+ 1. 向服务器提交内容
+ 2. 一般配合input标签使用
+ 3. action属性为提交地址
+ 4. method属性表示是post还是get
+ 5. target和a标签的target使用方式一样
+        </pre>
+        <a href="http://www.w3school.com.cn/tiy/t.asp?f=html_form_submit">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>frame</legend>
+        <p>表示frameset的一个窗口</p>
+        <a href="./html_frameset/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>frameset </legend>
+        <p>定义一个框架集</p>
+        <a href="./html_frameset/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>h1-h6</legend>
+        <p>6种不同的标题</p>
+        <h1>这是标题 1</h1>
+        <h2>这是标题 2</h2>
+        <h3>这是标题 3</h3>
+        <h4>这是标题 4</h4>
+        <h5>这是标题 5</h5>
+        <h6>这是标题 6</h6>
+    </fieldset>
+    <fieldset>
+        <legend>header</legend>
+
+        <pre>
+作用：语义化，文档内容头
+兼容：HTML5
+解析：
+    1. 就一个语义化的标签
+        </pre>
+        <p>语义化标签，和div用处一样</p>
+        <header>什么鬼</header>
+    </fieldset>
+    <fieldset>
+        <legend>hr</legend>
+        <pre>
+作用：一条横线
+兼容：所有浏览器
+</pre> 这里是上面内容
+        <hr> 这里是下面内容
+    </fieldset>
+
+    <fieldset>
+        <legend>iframe</legend>
+        <pre>
+作用：嵌套一个网页
+兼容：所有浏览器 
+        </pre>
+        <a href="./html_iframe/index.html">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>img</legend>
+        <pre>
+作用：展示一张图片
+兼容：所有浏览器
+解析：
+ 1. alt如果没图片的情况下显示文案
+ 2. width/height属性设置宽高
+        </pre>
+        <img src="./html_audio_video/img.jpg"><br> 无图片的情况
+        <br>
+        <img src="" alt="无图可以看">
+    </fieldset>
+    <fieldset>
+        <legend>input</legend>
+        <pre>
+作用：输入相关
+兼容：所有浏览器
+        </pre>
+        <p><a href="./html_input/index.html">查看使用示例</a></p>
+    </fieldset>
+    <fieldset>
+        <legend>keygen</legend>
+        <pre>
+作用：产生一对密匙
+兼容：HTML5
+解析：
+ 1. 提交表单时，私钥存储在本地，公钥发送到服务器。
+ 2. 没用过，我也不知道怎么用
+        </pre>
+        <a href="http://www.w3school.com.cn/tags/tag_keygen.asp">查看使用示例</a>
+    </fieldset>
+    <fieldset>
+        <legend>label</legend>
+        <pre>
+作用：定义input元素标记
+兼容：所有浏览器
+        </pre>
+
+        <p><label><input type="checkbox" >文字可以点击</label></p>
+        <p><input type="checkbox">文字不可以点击</p>
+    </fieldset>
+
+    <fieldset>
+        <legend>legend</legend>
+        <pre>
+作用：fieldset的标题
+兼容：所有浏览器
+    </pre>
+    </fieldset>
+    <fieldset>
+        <legend>li</legend>
+        <p><a href="./html_list/index.html">查看使用示例</a></p>
+    </fieldset>
+
+    <fieldset>
+        <legend>link</legend>
+        <pre>
+作用：加载外部资源
+兼容：所有浏览器
+解析：
+ 1. href为资源地址
+ 2. rel表示与文档关系
+ 3. type表示资源类型
+ 4. 一般用于加载css
+        </pre>
+    </fieldset>
+    <fieldset>
+        <legend>main</legend>
+        <pre>
+作用：表示文档主要内容
+兼容：HTML5
+解析：
+ 1. 和div一样，语义化元素
+        </pre>
+        <main>
+            这里是和主要的东西
+        </main>
+    </fieldset>
+    <fieldset>
+        <legend>map</legend>
+        <p>
+            <a href="./html_map/index.html">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>meter</legend>
+        <pre>
+作用：定义已知范围或分数值内的标量测量
+兼容：HTML5
+    </pre>
+        <p><meter value=".5"></meter></p>
+        <p><meter value="20" max="100" min="0"></meter></p>
+    </fieldset>
+    <fieldset>
+        <legend>nav</legend>
+        <pre>
+作用：导航
+兼容：HTML5
+解析：
+ 1. 语义化标签
+ 2. 与div一样
+        </pre>
+        <nav>
+            <a href="javascript:;">导航1</a>
+            <a href="javascript:;">导航2</a>
+            <a href="javascript:;">导航3</a>
+            <a href="javascript:;">导航4</a>
+        </nav>
+    </fieldset>
+    <fieldset>
+        <legend>noframes</legend>
+        <p>元素可为那些不支持框架的浏览器显示文本。noframes 元素位于 frameset 元素内部。</p>
+        <p>
+            <a href="http://www.w3school.com.cn/tiy/t.asp?f=html_noframes">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>noscript</legend>
+        <p>noscript 元素用来定义在script脚本未被执行时的替代内容（文本）。</p>
+        <p>
+            <a href="http://www.w3school.com.cn/tags/tag_noscript.asp">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>object</legend>
+        <p>用于嵌入多媒体</p>
+        <p>
+            <a href="http://www.w3school.com.cn/tags/tag_object.asp">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>ol</legend>
+        <p>
+            <a href="./html_list/index.html">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>optgroup</legend>
+        <p>下拉组</p>
+        <p><a href="./html_select/index.html">查看使用示例</a></p>
+    </fieldset>
+    <fieldset>
+        <legend>option</legend>
+        <p>下拉项</p>
+        <p><a href="./html_select/index.html">查看使用示例</a></p>
+    </fieldset>
+    <fieldset>
+        <legend>output</legend>
+        <pre>
+作用：定义输出
+兼容：HTML5         </pre>
+        <p><a href="http://www.w3school.com.cn/tiy/t.asp?f=html5_output">查看使用示例</a></p>
+    </fieldset>
+    <fieldset>
+        <legend>p</legend>
+        <pre>
+作用：表示一个段落
+兼容：所有浏览器
+        </pre>
+        <p>常用的标签之一</p>
+    </fieldset>
+    <fieldset>
+        <legend>param</legend>
+        <pre>
+作用：为object标签提供参数
+兼容：所有浏览器
+        </pre>
+        <p>
+            <a href="http://www.w3school.com.cn/tiy/t.asp?f=html_object">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>pre</legend>
+        <pre>
+作用：保留换行和空格字符
+兼容：所有浏览器
+解析：
+ 1. 常用于代码展示
+        </pre>
+        <pre>
+var a = 123;
+console.log(123);
+function setA(val){
+    a = val;
+}
+        </pre>
+    </fieldset>
+    <fieldset>
+        <legend>progress</legend>
+        <pre>
+作用：显示进度
+兼容：HTML5
+解析：
+ 1. max和value属性分别表示最高值和当前值
+    </pre>
+        <p>当前进度：<progress value="15" max="100"></progress></p>
+
+    </fieldset>
+    <fieldset>
+        <legend>rp/rt/ruby</legend>
+        <p>这三个标签都与ruby相关，用到的时候很少，不做介绍,自己有需要可以去了解</p>
+    </fieldset>
+    <fieldset>
+        <legend>script</legend>
+        <pre>
+作用：定义、引用js脚本
+兼容：所有浏览器
+解析：
+ 1. 浏览器可以关闭此功能
+ 2. noscript标签可以判断是否启用script
+    </pre>
+        <p>
+            <a href="http://www.w3school.com.cn/tiy/t.asp?f=html_script">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>select</legend>
+        <pre>
+作用：下拉菜单
+兼容：所有浏览器
+</pre>
+        <p>
+            <a href="./html_select/index.html">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>source</legend>
+        <pre>
+作用：定义video、audio媒体源
+兼容：HTML5
+解析：
+ 1. 仅提供媒体源，不会自动播放
+ 2. video和audio的播放媒体永远是src属性的，source仅仅是告诉你有这个媒体源
+    </pre>
+        <p>
+            <a href="http://www.w3school.com.cn/tiy/t.asp?f=html5_source_src">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>style</legend>
+        <pre>
+作用：定义样式
+兼容：所有浏览器
+        </pre>
+        <p>这个标签没什么说的</p>
+        <p>
+            <a href="http://www.w3school.com.cn/tiy/t.asp?f=html_style">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>table、tbody、td、tfoot、th、thead、tr</legend>
+        <pre>
+作用：定义表格和其相关的
+兼容：所有浏览器
+        </pre>
+        <p>
+            <a href="./html_table/index.html">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>textarea</legend>
+        <pre>
+作用：定义文本域
+兼容：所有浏览器
+解析：
+ 1. 可以进行多行输入
+ 2. 有与pre标签一样的功能
+        </pre>
+        <textarea>
+这里是文本域
+        </textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>ul</legend>
+        <p>
+            <a href="./html_list/index.html">查看使用示例</a>
+        </p>
+    </fieldset>
+    <fieldset>
+        <legend>video</legend>
+        <pre>
+作用：播放视频
+兼容：HTML5
+    </pre>
+        <p><a href="./html_audio_video/index.html">查看使用示例</a></p>
+    </fieldset>
+    <fieldset>
+        <legend>语义化但是建议使用样式表来进行控制效果的标签</legend>
+        <table border="1">
+            <tr>
+                <th>标签</th>
+                <th>说明</th>
+                <th>示例</th>
+            </tr>
+            <tr>
+                <td>cite</td>
+                <td>表示一个引用</td>
+                <td>
+                    这个是什么鬼<cite>我不知道(这里使用了cite)</cite>哈哈
+                </td>
+            </tr>
+            <tr>
+                <td>code</td>
+                <td>表示一个源代码</td>
+                <td>
+                    <code>
+                        var a = 123; a++; 
+                    </code>
+                </td>
+            </tr>
+            <tr>
+                <td>dfn</td>
+                <td>定义一个项目</td>
+                <td>
+                    这里是dfn外面的文字<dfn>这里是一个项目</dfn>
+                </td>
+            </tr>
+            <tr>
+                <td>em</td>
+                <td>把文本定义为强调的内容。</td>
+                <td>
+                    这里是一段文字<em>这里使用了em</em>
+                </td>
+            </tr>
+            <tr>
+                <td>i</td>
+                <td>斜线</td>
+                <td>
+                    这里是一段文字<i>这里斜了</i>
+                </td>
+            </tr>
+            <tr>
+                <td>ins</td>
+                <td>插入文本</td>
+                <td>
+                    <p>这是一段文字，<ins>这里插入一段文字</ins></p>
+                </td>
+            </tr>
+            <tr>
+                <td>kbd </td>
+                <td>定义键盘文本</td>
+                <td>
+                    <p>这是一段文字，<kbd>这里是kbd</kbd></p>
+                </td>
+            </tr>
+            <tr>
+                <td>mark</td>
+                <td>带有记号的文本</td>
+                <td>
+                    <p>这是一段文字，<mark>这里是,mark</mark></p>
+                </td>
+            </tr>
+            <tr>
+                <td>q</td>
+                <td>定义短引用</td>
+                <td>
+                    这是一段文字<q>这里面是引用</q>
+                </td>
+            </tr>
+            <tr>
+                <td>samp</td>
+                <td>文本字符</td>
+                <td>
+                    字符序列 <samp>ae</samp> 可能会被转换为 &aelig; 连字字符。
+                </td>
+            </tr>
+            <tr>
+                <td>section</td>
+                <td>语义化：章节、页眉、页脚或文档中的其他部分。</td>
+                <td>
+                    <section>
+                        <h1>PRC</h1>
+                        <p>The People's Republic of China was born in 1949...</p>
+                    </section>
+                </td>
+            </tr>
+            <tr>
+                <td>small</td>
+                <td>小号文本</td>
+                <td><small>这里是小号文本</small>这里是正常的</td>
+            </tr>
+            <tr>
+                <td>span</td>
+                <td>语义化，方便格式化文字</td>
+                <td><span>span没有自带任何效果，用于自己写style</span></td>
+            </tr>
+            <tr>
+                <td>strong</td>
+                <td>强调内容</td>
+                <td><strong>这里是强调内容</strong>这里是内容</td>
+            </tr>
+            <tr>
+                <td>sub</td>
+                <td>下标</td>
+                <td>这里是内容<sub>下标</sub>就是这样的</td>
+            </tr>
+            <tr>
+                <td>sup</td>
+                <td>上标</td>
+                <td>这里是内容<sup>上标</sup>就是这样的</td>
+            </tr>
+            <tr>
+                <td>time</td>
+                <td>时间</td>
+                <td>现在是：<time>9:00</time><br>
+                    <p>我在 <time datetime="2008-02-14">情人节</time> 有个约会。</p>
+                </td>
+            </tr>
+            <tr>
+                <td>u</td>
+                <td>下划线文本</td>
+                <td>这里是正常文本<u>这里是下划线文本</u></td>
+            </tr>
+            <tr>
+                <td>var</td>
+                <td>定义变量</td>
+                <td>
+                    <p>一般配合code和pre一起使用</p>
+                    <code>
+                        <pre>
+var <var>num</var> = 123;
+                        </pre>
+                    </code>
+                </td>
+            </tr>
+            <tr>
+                <td>wbr</td>
+                <td>控制换行</td>
+                <td>
+                    <p>
+                        如果想学习 AJAX，那么您必须熟悉 XML<wbr>Http<wbr>Request 对象。
+                    </p>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+
+    <fieldset>
+        <legend>HTML非全兼容标签</legend>
+        <p>有个定义，但是并不适用的标签,这里只提出来，不进行解答</p>
+        <table border="1">
+            <tr>
+                <th>标签</th>
+                <th>说明</th>
+                <th>使用</th>
+            </tr>
+            <tr>
+                <td>bdi</td>
+                <td>定义文本的文本方向，使其脱离其周围文本的方向设置。</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>command</td>
+                <td>表示用户能够调用的命令。</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>details</td>
+                <td>对某个位置进行细节描述，结合summary标签使用</td>
+                <td>
+                    <details>
+                        <summary>可以展开内容</summary>
+                        这里面是展开内容，summary是details的标题
+                    </details>
+                    <details open="open">
+                        <summary>可以展开内容</summary>
+                        details的open属性可以默认让他展开
+                    </details>
+                </td>
+            </tr>
+            <tr>
+                <td>dialog</td>
+                <td>传说中要替代alert的控件</td>
+                <td>
+                    <dialog>这里是一个弹窗</dialog>
+                    <button onclick="document.querySelector('dialog').setAttribute('open','open')">显示</button>
+                    <button onclick="document.querySelector('dialog').removeAttribute('open')">关闭</button>
+                </td>
+            </tr>
+            <tr>
+                <td>menu</td>
+                <td>定义命令的列表或菜单。</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>menuitem</td>
+                <td>用户右键菜单</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>summary</td>
+                <td>details 元素的标题</td>
+                <td>示例看上面的details标签</td>
+            </tr>
+        </table>
+    </fieldset>
+</body>
+
+</html>
