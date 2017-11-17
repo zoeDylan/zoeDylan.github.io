@@ -624,3 +624,11 @@ body > h2.title {
     right: 10px;
   }
 }
+.__stylePanel {
+  display: none;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.__stylePanel.show {
+  display: block;
+}
