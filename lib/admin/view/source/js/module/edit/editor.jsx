@@ -10,7 +10,6 @@ class Editor extends React.Component {
             mode: "markdown",
             lineNumbers: true,
             theme: 'monokai'
-
         });
         this.editor.on('change', (i, c) => {
             this.onInputChange(i.doc.getValue());

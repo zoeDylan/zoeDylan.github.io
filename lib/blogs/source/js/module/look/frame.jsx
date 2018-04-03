@@ -66,7 +66,9 @@ class Frame extends React.Component {
                     __html: md.render(this.props.text +
                         '\n\n --- \n\n *文章创建时间:' + new Date(this.props.item._insert).toLocaleDateString() + '*' +
                         '\n\n *最后修改时间:' + new Date(this.props.item._update).toLocaleDateString() + '*' +
-                        '\n\n *By:zoeDylan*')
+                        '\n\n *By:zoeDylan*'+
+                        '\n\n [回复、留言](https://github.com/zoeDylan/zoeDylan.github.io/issues)'
+                    )
                 }} ></div>
             </div>
         )

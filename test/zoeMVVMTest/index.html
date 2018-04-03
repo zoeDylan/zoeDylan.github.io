@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="app">
+        <p>
+            每次改变大小：
+            <input type="text" :="runNum">
+        </p>
+        {{num}}
+        <p>
+            <button @click="add">加</button>
+            <button @click="minux">减</button>
+        </p>
+        <p>{{text}}</p>
+    </div>
+    <script src="./Zoe.js"></script>
+    <script>
+        new Zoe({
+            el: '#app',
+            data: {
+                num: 0,
+                text: '',
+                runNum: 10
+            },
+            methods: {
+                add: function () {
+                    console.log(typeof this.data.runNum)
+                    this.data.num += this.data.runNum;
+                    this.data.text = '艾玛，增了' + this.data.runNum
+                },
+                minux: function () {
+                    this.data.num -= this.data.runNum;
+                    this.data.text = '艾玛，减了' + this.data.runNum
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
